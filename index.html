@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tic Tac Toe Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <header class="app-header glass">
+      <div class="title-wrap">
+        <h1 id="appTitle">Tic-Tac-toe</h1>
+        <span class="version-chip" aria-label="App version">1</span>
+      </div>
+
+      <div class="controls">
+        <div class="mode-group">
+          <label for="gameMode"><span class="label">Mode</span></label>
+          <select id="gameMode" aria-label="Select game mode">
+            <option value="pvp">Player vs Player</option>
+            <option value="pve-easy">Player vs Computer (Easy)</option>
+            <option value="pve-hard">Player vs Computer (Hard)</option>
+          </select>
+        </div>
+
+        <div class="symbol-group">
+          <label for="playerSymbol"><span class="label">You play</span></label>
+          <select id="playerSymbol" aria-label="Select your symbol">
+            <option value="X">X</option>
+            <option value="O">O</option>
+          </select>
+        </div>
+
+        <button id="newGameBtn" class="btn primary" aria-label="Start new game">New game</button>
+        <button id="resetStatsBtn" class="btn danger" aria-label="Reset all stats">Reset stats</button>
+        <button id="soundToggleBtn" class="btn" aria-label="Toggle sound">🔊 Sound</button>
+        <button id="themeToggleBtn" class="btn" aria-label="Toggle theme">🌗 Theme</button>
+      </div>
+    </header>
+
+    <section class="status-bar glass" aria-live="polite">
+      <div id="statusMessage">Select your mode to begin.</div>
+      <div class="scoreboard">
+        <div class="score-card">
+          <span class="score-label">X wins</span>
+          <span id="scoreX" class="score-value">0</span>
+        </div>
+        <div class="score-card">
+          <span class="score-label">O wins</span>
+          <span id="scoreO" class="score-value">0</span>
+        </div>
+        <div class="score-card">
+          <span class="score-label">Draws</span>
+          <span id="scoreDraws" class="score-value">0</span>
+        </div>
+        <div class="score-card">
+          <span class="score-label">Current streak</span>
+          <span id="currentStreak" class="score-value">0</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div id="board" class="board glass" role="grid" aria-label="Tic Tac Toe board">
+        <!-- 9 cells -->
+        <button class="cell" data-index="0" aria-label="Cell 1" role="gridcell"></button>
+        <button class="cell" data-index="1" aria-label="Cell 2" role="gridcell"></button>
+        <button class="cell" data-index="2" aria-label="Cell 3" role="gridcell"></button>
+        <button class="cell" data-index="3" aria-label="Cell 4" role="gridcell"></button>
+        <button class="cell" data-index="4" aria-label="Cell 5" role="gridcell"></button>
+        <button class="cell" data-index="5" aria-label="Cell 6" role="gridcell"></button>
+        <button class="cell" data-index="6" aria-label="Cell 7" role="gridcell"></button>
+        <button class="cell" data-index="7" aria-label="Cell 8" role="gridcell"></button>
+        <button class="cell" data-index="8" aria-label="Cell 9" role="gridcell"></button>
+      </div>
+    </section>
+
+    <section class="actions glass">
+      <button id="restartBtn" class="btn" aria-label="Restart round">Restart round</button>
+      <button id="undoBtn" class="btn" aria-label="Undo last move">Undo</button>
+      <button id="hintBtn" class="btn" aria-label="Get a hint">Hint</button>
+    </section>
+
+    <section class="badges glass">
+      <h2 class="section-title">Badges</h2>
+      <div id="badgeList" class="badge-list">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    
+  </main>
+
+  
+  <div id="badgeModal" class="modal" aria-hidden="true" role="dialog" aria-label="Badge unlocked">
+    <div class="modal-content glass">
+      <h3>Badge unlocked!</h3>
+      <div id="modalBadge" class="badge badge-large"></div>
+      <button id="closeModalBtn" class="btn primary">Nice!</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
